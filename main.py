@@ -2,11 +2,11 @@
 import tkinter as tk
 from tkinter import ttk
 import os
-from conexion import ConexionLOGITRANS
-from modulo_cliente import ModuloCliente
-from modulo_envios import ModuloEnvios
-from modulo_flota import ModuloFlota
-from modulo_incidentes import ModuloIncidentes
+from models.conexion import ConexionLOGITRANS
+from views.modulo_cliente import ModuloCliente
+from views.modulo_envios import ModuloEnvios
+from views.modulo_flota import ModuloFlota
+from views.modulo_incidentes import ModuloIncidentes
 from datetime import datetime
 
 # Creamos la clase que nos va a mostrar en el encabezado los datos de ingreso
@@ -85,16 +85,21 @@ class ApplicationLOGITRANS:
         pestana_activa = self.notebook.index(self.notebook.select())
         if pestana_activa == 1:
             if hasattr(self, 'modulo_envios_gui'):
-                self.modulo_envios_gui.cargar_tabla_visual()
+                # CORRECCIÓN: Apuntamos al controlador del módulo
+                self.modulo_envios_gui.controller.cargar_tabla_visual()
         elif pestana_activa == 0:
             if hasattr(self, 'modulo_cliente_gui'):
-                self.modulo_cliente_gui.cargar_tabla_visual()
+                # CORRECCIÓN: Apuntamos al controlador del módulo
+                self.modulo_cliente_gui.controller.cargar_tabla_visual()
         elif pestana_activa == 2:
             if hasattr(self, 'modulo_flota_gui'):
-                self.modulo_flota_gui.cargar_tabla_visual()
+                # CORRECCIÓN: Apuntamos al controlador del módulo
+                self.modulo_flota_gui.controller.cargar_tabla_visual()
         elif pestana_activa == 3:
             if hasattr(self, 'modulo_incidentes_gui'):
-                self.modulo_incidentes_gui.cargar_tabla_visual()
+                # CORRECCIÓN: Apuntamos al controlador del módulo
+                self.modulo_incidentes_gui.controller.cargar_tabla_visual()
+
 
     # cambiar color de ventana
     def alternar_tema_visual(self):
