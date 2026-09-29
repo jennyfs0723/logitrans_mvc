@@ -43,10 +43,16 @@ class ClienteController:
         # Generamos el codigo automatico por medio de randint le damos un rango numerico
         codigo_automatico = f"CL-{random.randint(1000, 9999)}"
 
+
         # llamamos a los datos del formulario
         datos = self.obtener_datos_formulario()
         datos['codigo_unico'] = codigo_automatico # Renombramos la funcion de codigo unico de la db para que sea
         # automatico en el sistema de creacion de cliente
+
+        # si el nombre del cliente es numerico da error
+        if datos['nombre_o_razon_social'].isnumeric():
+            messagebox.showerror("Error", "El nombre del cliente debe ser alfabetico.")
+            return
 
         # validaciones
         # si no ha escrito los datos en el campo, no permitira guardar cliente

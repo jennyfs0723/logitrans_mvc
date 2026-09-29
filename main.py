@@ -85,19 +85,15 @@ class ApplicationLOGITRANS:
         pestana_activa = self.notebook.index(self.notebook.select())
         if pestana_activa == 1:
             if hasattr(self, 'modulo_envios_gui'):
-                # CORRECCIÓN: Apuntamos al controlador del módulo
                 self.modulo_envios_gui.controller.cargar_tabla_visual()
         elif pestana_activa == 0:
             if hasattr(self, 'modulo_cliente_gui'):
-                # CORRECCIÓN: Apuntamos al controlador del módulo
                 self.modulo_cliente_gui.controller.cargar_tabla_visual()
         elif pestana_activa == 2:
             if hasattr(self, 'modulo_flota_gui'):
-                # CORRECCIÓN: Apuntamos al controlador del módulo
                 self.modulo_flota_gui.controller.cargar_tabla_visual()
         elif pestana_activa == 3:
             if hasattr(self, 'modulo_incidentes_gui'):
-                # CORRECCIÓN: Apuntamos al controlador del módulo
                 self.modulo_incidentes_gui.controller.cargar_tabla_visual()
 
 
